@@ -1,42 +1,16 @@
-# 164.test
 
-Ще не вмерла Україна, ні слава, ні воля,
-Ще нам, браття молодії, усміхнеться доля!
-Згинуть наші вороженьки, як роса на сонці,
-Запануєм і ми, браття, у своїй сторонці!
-Душу й тіло ми положим за нашу свободу
-І — покажем, що ми, браття, козацького роду!
-Гей-гей, браття милі,
-Нумо братися за діло,
-Гей, гей, пора встати,
-Пора волю добувати!
-Ой, Богдане, Богдане, славний наш гетьмане,
-Нащо оддав Україну ворогам поганим?!
-Щоб вернути її честь, ляжем головами,
-Наречемось України славними синами.
-Душу й тіло ми положим за нашу свободу
-І — покажем, що ми, браття, козацького роду!
-Спогадаймо тяжкий час, лихую годину,
-тих, що вміли умирати за нашу Вкраїну,
-Спогадаймо славну смерть лицарства-козацтва!
-Щоб не стратить марно нам свого юнацтва!
-Душу й тіло ми положим за нашу свободу
-І — покажем, що ми, браття, козацького роду!
+USE make_query(sql, table) for having nice output in console!
+    - '<sql>' is your query to DB in sql
+    - '<table>' the name of the table in DB (it isn't necessary to define it, but i am strongly recommend)
+example: make_query("select * from Region where RegionID ='3' ", 'Region')
 
-1) кожний створює свій власний бранч і в файл out.txt додає срої рядки тексту
-Petro Lozhkin 1, 7, 13, 19
-Vadym Padalko 2, 8, 14, 20
-Andrii Piratovskyi 3,9,15,21
-Gamolya Vlad 4, 10, 16, 22
-Inna Kutsik 5,11,17
-Illya Pavlovskyi 6,12,18'
 
-2) чожен з своєї бранчі робить пулреквест в мастер
+to see table info use:
+1 just the list of tables
+    # pprint(tables)
+2 list of all tables with additional info
+    # pprint(map(show_full_table_info, tables))
+3 detailed info about specific table
+    # pprint(show_full_table_info('<table_name>'))
 
-3) правете на мастері правельну послідовність 
-Petro Lozhkin 1-4
-Vadym Padalko 5-8
-Andrii Piratovskyi 9-13
-Gamolya Vlad 13-16
-Inna Kutsik 17-20
-Illya Pavlovskyi 21-22
+!!!not fully tested yet!!!

@@ -3,6 +3,7 @@ from __future__ import print_function
 from pprint import pprint
 import MySQLdb
 from settings import password
+from utils import make_dict, reduce_seq
 
 db = MySQLdb.connect("localhost", 'root', password, 'Northwind')
 COLUMN_INFO = [
@@ -14,26 +15,9 @@ COLUMN_INFO = [
     'Extra'
 ]
 
-
-def reduce_seq(seq):
-    res = []
-    for item in seq:
-        if hasattr(item, '__iter__'):
-            for x in item:
-                res.append(x)
-        else:
-            res.append(item)
-    return res
-
-
-def make_dict(keys, vals):
-    result = dict(zip(keys, vals))
-    extra_keys = set(keys) - set(result.iterkeys())
-    if extra_keys:
-        for key in extra_keys:
-            result[key] = None
-    return result
-
+get_tables = db.cursor()
+get_tables.execute('show tables;')
+tables = reduce_seq(get_tables.fetchall())
 
 def show_full_table_info(table):
     q = db.cursor()
@@ -47,10 +31,6 @@ def show_full_table_info(table):
         output_query[table_field_key].update((k.upper(), v) for (k, v) in dct.iteritems())
         output_query[table_field_key]['__TABLE_NAME__'] = table
     return output_query
-
-get_tables = db.cursor()
-get_tables.execute('show tables;')
-tables = reduce_seq(get_tables.fetchall())
 
 
 def make_query(sql, table=None):
@@ -75,7 +55,7 @@ def make_query(sql, table=None):
             result.append(val)
         return result
 
-pprint(make_query("select * from Region", 'Region'))
-pprint(show_full_table_info('Region'))
+pprint(make_query("select * from Region where RegionID ='3' ", 'Region'))
+# pprint(show_full_table_info('Region'))
 
 # pprint(map(show_full_table_info, tables))

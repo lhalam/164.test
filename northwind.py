@@ -5,7 +5,7 @@ import MySQLdb
 from settings import password
 from utils import make_dict, reduce_seq
 
-db = MySQLdb.connect("localhost", 'root', password, 'Northwind')
+db = MySQLdb.connect("localhost", 'root', password, 'test')
 COLUMN_INFO = [
     'Field',
     'Type',
@@ -55,7 +55,7 @@ def make_query(sql, table=None):
             result.append(val)
         return result
 
-pprint(make_query("select * from Region where RegionID ='3' ", 'Region'))
+# pprint(make_query("select * from Product;" "Product"))
 # pprint(show_full_table_info('Region'))
 
 # pprint(map(show_full_table_info, tables))

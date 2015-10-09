@@ -3,7 +3,7 @@ DROP DATABASE IF EXISTS test;
 
 CREATE DATABASE test;
 use test;
-DROP TABLE IF EXISTS  Users;
+# DROP TABLE IF EXISTS  Users;
 CREATE TABLE Users (
   id INT NOT NULL AUTO_INCREMENT,
   first_name VARCHAR(255) NOT NULL,
@@ -13,14 +13,14 @@ CREATE TABLE Users (
   PRIMARY KEY(id)
 );
 
-DROP TABLE IF EXISTS  Resources;
+# DROP TABLE IF EXISTS  Resources;
 CREATE TABLE Resources (
   id INT NOT NULL,
   resource_name VARCHAR(100) NOT NULL,    -- name of resource
   PRIMARY KEY(id)
 );
 
-DROP TABLE IF EXISTS  Permissions;
+# DROP TABLE IF EXISTS  Permissions;
 CREATE TABLE Permissions (
   id INT NOT NULL AUTO_INCREMENT,
   action VARCHAR(100) NOT NULL,
@@ -30,7 +30,7 @@ CREATE TABLE Permissions (
   PRIMARY KEY(id)
 );
 
-DROP TABLE IF EXISTS  Roles;
+# DROP TABLE IF EXISTS  Roles;
 CREATE TABLE Roles (
   id INT NOT NULL,
   name INT NOT NULL,              -- name of role
@@ -40,7 +40,7 @@ CREATE TABLE Roles (
 	/*
 	User_roles table create relations between users and their specific roles.
 	*/
-DROP TABLE IF EXISTS  User_roles;
+# DROP TABLE IF EXISTS  User_roles;
 CREATE TABLE User_roles (
  id INT NOT NULL AUTO_INCREMENT,
  user_id INT NOT NULL,
@@ -53,7 +53,7 @@ CREATE TABLE User_roles (
 
 
 # use test;
-DROP TABLE IF EXISTS  Role_permissions;
+# DROP TABLE IF EXISTS  Role_permissions;
 CREATE TABLE Role_permissions (
   /*
   Simple table with relations between specific roles of users and its permissions.
@@ -66,7 +66,7 @@ CREATE TABLE Role_permissions (
   FOREIGN KEY (permissions_id) REFERENCES Permissions(id)
 );
 
-DROP TABLE IF EXISTS  Detailed_problems;
+# DROP TABLE IF EXISTS  Detailed_problems;
 CREATE TABLE Detailed_problems (
  id INT NOT NULL,
  title VARCHAR(255) NOT NULL,
@@ -89,7 +89,7 @@ CREATE TABLE Detailed_problems (
 
 # Should We use namespace here? Or we are
 # going to pass it while executing code ?
-DROP TABLE IF EXISTS Problem_types;
+# DROP TABLE IF EXISTS Problem_types;
 CREATE TABLE Problem_types (
     /*
         This table provides description of all problem types
@@ -100,7 +100,7 @@ CREATE TABLE Problem_types (
 );
 
 
-DROP TABLE IF EXISTS  Problems;
+# DROP TABLE IF EXISTS  Problems;
 CREATE TABLE Problems (
   id INT NOT NULl AUTO_INCREMENT,
   content VARCHAR(255) NOT NULL ,
@@ -117,7 +117,7 @@ CREATE TABLE Problems (
 
 # Should We use namespace here? Or we are
 # going to pass it while executing code ?
-DROP TABLE IF EXISTS Problem_activities;
+# DROP TABLE IF EXISTS Problem_activities;
 CREATE TABLE Problem_activities (
     /*
         This table represents logging of all activities on
@@ -134,7 +134,7 @@ CREATE TABLE Problem_activities (
     FOREIGN KEY (user_id) REFERENCES Users(id)
 );
 
-DROP TABLE IF EXISTS  Votes;
+# DROP TABLE IF EXISTS  Votes;
 CREATE TABLE Votes (
   id INT NOT NULl AUTO_INCREMENT,
   problem_id INT NOT NUll, # problem, wich was voted
@@ -146,7 +146,7 @@ CREATE TABLE Votes (
 );
 
 # use test;
-DROP TABLE IF EXISTS  Photos;
+# DROP TABLE IF EXISTS  Photos;
 CREATE TABLE Photos (
   /*
   Table for storage attached photos to Problem entities.
@@ -164,7 +164,7 @@ CREATE TABLE Photos (
   FOREIGN KEY (user_id) REFERENCES Users(id)
 );
 
-DROP TABLE IF EXISTS  Comments;
+# DROP TABLE IF EXISTS  Comments;
 CREATE TABLE Comments (
   id INT NOT NULl AUTO_INCREMENT,
   content VARCHAR(255) NOT NULL,

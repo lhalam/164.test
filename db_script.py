@@ -34,7 +34,12 @@ def exec_sql_file(cursor, sql_file):
 exec_sql_file(db.cursor(), '{}/db/all_sql_in_one.sql'.format(PATH))
 # exec_sql_file(db.cursor(), '{}/db/table2.sql'.format(PATH))
 # exec_sql_file(db.cursor(), '{}/db/table3.sql'.format(PATH))
-print make_query('select * from Users;', 'Users')
-print make_query('select * from Problems;', 'Problems')
-print make_query('show tables;')
+print 'Users:'
+pprint(make_query('select * from Users;', 'Users'))
+print 'Problems:'
+pprint(make_query('select * from Problems;', 'Problems'))
+print 'All tables:'
+pprint(tables)
 # pprint(show_full_table_info('Photos'))
+# pprint(map(show_full_table_info, tables))
+db.close()

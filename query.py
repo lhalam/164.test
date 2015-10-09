@@ -35,7 +35,6 @@ def show_full_table_info(table):
 
 def make_query(sql, table=None):
     """
-
     :rtype : list of dictionaries
     """
     qs = db.cursor()
@@ -57,5 +56,4 @@ def make_query(sql, table=None):
 
 # pprint(make_query("select * from Product;" "Product"))
 # pprint(show_full_table_info('Region'))
-
 # pprint(map(show_full_table_info, tables))
